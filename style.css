@@ -10,6 +10,7 @@ h1{
     font-family: 'Bentham', serif;
     font-size: 34px;
     color: #474747;
+   
 }
 
 h2{
@@ -21,3 +22,12 @@ h2{
     letter-spacing: 0.2em;
 }
 
+.header, .input-ingredients{
+    text-align: center;
+    align-content: center;
+}
+
+.input-ingredients-form input[text]{
+    border-radius: 2rem;
+    background-color: red;
+}
