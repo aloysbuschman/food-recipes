@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe app</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <link href="https://fonts.googleapis.com/css?family=Bentham|Playfair+Display|Raleway:400,500|Suranna|Trocchi" rel="stylesheet">
 </head>
 <body>
@@ -16,10 +16,19 @@
             <h2>Insert your ingredients</h2>
         </div>
         <div class="input-ingredients">
-            <form>
-                <label for="ingredient1">Ingredient 1:</label><br>
-                <input type="text" id="ingredient1" name="ingredient1"></input>
+            <form class="input-ingredients-form">
+                <input type="text" id="ingredient1" name="ingredient1" placeholder="ingredient #1"></input>
+                <button type="submit" class="ingredient1-submit">Submit</button>
             </form>
+        </div>
+        <div class="meal-wrapper">
+            
+        </div>
+        
+        <div class="modal-outer">
+            <div class="modal-inner">
+                
+            </div>
         </div>
     </main>
     <section>
