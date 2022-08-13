@@ -37,27 +37,29 @@ input[type=text]{
     border-radius: .2rem;
     border-width: 0.5px;
     font-family: 'Raleway', sans-serif;
-    font-size: 0.5rem;
-    width: 10rem;
-    height: 1rem;
+    font-size: 1rem;
+    width: 15rem;
+    height: 2rem;
 }
 
 .meal-wrapper{
     width: 100vw;
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-top: 5%;
-    background-color: white;
     overflow: hidden;
+    position: absolute;
+    flex-direction: column;
 }
 
 .meal{
     background-color: white;
-    position: absolute;
+    position: relative;
     width: 800px;
     height: 150px;
     border-radius: 4px;
-    margin: 5%;
+    margin: 0.5%;
     overflow: hidden;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     display: flex;
@@ -112,11 +114,15 @@ input[type=text]{
     text-transform: uppercase;
     font-weight: bold;
     color: #E6CECA;
-    margin-left: 10px;
-    margin-top: 10px;
+    margin-left: 5%;
+    margin-top: 5%;
 }
 
 .meal-title{
-    margin-left: 10px;
+    margin-left: 5%;
     position: relative;
+}
+
+.meal-info{
+    width: 600px;
 }
