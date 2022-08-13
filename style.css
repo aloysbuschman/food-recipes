@@ -126,3 +126,27 @@ input[type=text]{
 .meal-info{
     width: 600px;
 }
+
+.modal-outer {
+    visibility: hidden;
+}
+
+.modal-outer.show{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.35);
+    position: absolute;
+    top: 0;
+    right: 0;
+    visibility: visible;
+}
+
+.modal-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 50vh;
+    width: 50vw;
+
+}
