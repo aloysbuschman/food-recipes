@@ -41,8 +41,4 @@ function getMeals(event) {
     })
     mealWrapper.innerHTML = html;
   });
-<<<<<<< HEAD
-}
-=======
-}
->>>>>>> refs/remotes/origin/main
+
