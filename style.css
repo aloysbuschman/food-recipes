@@ -8,7 +8,16 @@ body {
 
 h1{
     font-family: 'Bentham', serif;
+    font-size: 34px;
+    color: #474747;
 }
 
-
+h2{
+    font-size: 13px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #d2d2d2;
+    letter-spacing: 0.2em;
+}
 
