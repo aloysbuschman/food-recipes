@@ -41,4 +41,4 @@ function getMeals(event) {
     })
     mealWrapper.innerHTML = html;
   });
-
+}
