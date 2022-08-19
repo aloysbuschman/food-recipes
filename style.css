@@ -253,21 +253,23 @@ input[type=text]{
 }
 
 .modal-outer.show{
+    display: grid;
+    justify-content: center;
+    align-items: center;
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.35);
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     visibility: visible;
 }
 
 .modal-inner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: white;
-    height: 50vh;
-    width: 50vw;
+    max-width: 600px;
+    min-width: 400px;
+    min-height: 200px;
+    border-radius: 5px;
 
 }
