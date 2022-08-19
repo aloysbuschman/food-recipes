@@ -26,7 +26,7 @@ function getMeals(event) {
     let html = ``
     data.meals.forEach(meal => {
       html += `
-        <div class="meal" id="${meal.idMeal}">
+        <div class="meal" data-id="${meal.idMeal}">
           <div class="meal-image">
             <img src="${meal.strMealThumb}">
           </div>
