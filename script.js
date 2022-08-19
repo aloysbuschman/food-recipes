@@ -1,13 +1,13 @@
 
 // Select DOM Elements
 const mealWrapper = document.querySelector('.meal-wrapper');
-const submit1 = document.querySelector('.ingredient1-submit');
-const input = document.querySelector('#ingredient1');
+const submitBtn = document.querySelector('.ingredient1-submit');
+const inputField = document.querySelector('#ingredient1');
 const selectMeal = document.querySelectorAll('.meal');
 const modal = document.querySelector('.modal-outer')
 
 //Event listners
-submit1.addEventListener('click', getMeals);
+submitBtn.addEventListener('click', getMeals);
 
 
 function openModal(e) {
@@ -17,8 +17,8 @@ function openModal(e) {
 
 function getMeals(event) {
   event.preventDefault();
-  console.log(input.value);
-  userInput = input.value;
+  console.log(inputField.value);
+  userInput = inputField.value;
   fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${userInput}`)
   .then((response) => response.json())
   .then((data) => {
