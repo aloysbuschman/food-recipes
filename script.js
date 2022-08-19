@@ -1,4 +1,3 @@
-
 // Select DOM Elements
 const mealWrapper = document.querySelector('.meal-wrapper');
 const submitBtn = document.querySelector('.ingredient1-submit');
@@ -9,13 +8,10 @@ const modal = document.querySelector('.modal-outer')
 //Event listners
 submitBtn.addEventListener('click', getMeals);
 
-
-function openModal(e) {
-  console.log(e.target.closest('.meal'));
-  modal.classList.toggle('show');
-}
+// Functions 
 
 function getMeals(event) {
+  // Prevents page reload after user input
   event.preventDefault();
   console.log(inputField.value);
   userInput = inputField.value;
@@ -42,3 +38,8 @@ function getMeals(event) {
     mealWrapper.innerHTML = html;
   });
 };
+
+function openModal(e) {
+  console.log(e.target.closest('.meal'));
+  modal.classList.toggle('show');
+}
