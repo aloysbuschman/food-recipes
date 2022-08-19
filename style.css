@@ -31,8 +31,6 @@ input::placeholder{
     opacity: .5;
     font-style: italic;
     text-transform: lowercase;
-<<<<<<< HEAD
-=======
 }
 
 input[type=text]{
@@ -150,8 +148,6 @@ input[type=text]{
     background-color: white;
     height: 50vh;
     width: 50vw;
-
->>>>>>> refs/remotes/origin/main
 }
 
 input[type=text]{
