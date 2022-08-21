@@ -6,7 +6,7 @@ const selectMeal = document.querySelectorAll('.meal');
 const modal = document.querySelector('.modal-outer');
 const closeModalBtn = document.querySelector('.close-modal');
 
-//Event listners
+//Event listeners
 submitBtn.addEventListener('click', getMeals);
 closeModalBtn.addEventListener('click', closeModal);
 
@@ -46,8 +46,28 @@ function openModal(e) {
   if (e.target.closest('.meal')) {
     modal.classList.toggle('show');
   }
-}
+};
 
 function closeModal(e) {
     modal.classList.toggle('show');
-}
+};
+
+// Work in progress ! 
+let recipe;
+
+// Call the API
+fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=cheese`)
+.then((response) => response.json())
+  .then((data) => {
+
+	// Store the recipe data to a variable
+	console.log(data.meals);
+  recipe = data.meals[0].idMeal
+
+	// Fetch another API
+	return fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipe}`);
+
+}).then((response) => response.json())
+.then((recipeDetails) => {
+	console.log(recipe, recipeDetails.meals[0]);
+});
