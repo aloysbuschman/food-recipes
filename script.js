@@ -7,7 +7,7 @@ const modal = document.querySelector('.modal-outer');
 const closeModalBtn = document.querySelector('.close-modal');
 
 //Event listeners
-submitBtn.addEventListener('click', getMeals);
+submitBtn.addEventListener('click', getMeals2);
 closeModalBtn.addEventListener('click', closeModal);
 
 // Functions 
@@ -52,22 +52,30 @@ function closeModal(e) {
     modal.classList.toggle('show');
 };
 
-// Work in progress ! 
-let recipe;
+
 
 // Call the API
-fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=cheese`)
-.then((response) => response.json())
-  .then((data) => {
+function getMeals2(event) {
+  // Declare variables
+  let recipeId;
+  let userInput;
+  let html;
+  // Prevent page from reloading and get userInput
+  event.preventDefault();
+  userInput = inputField.value;
+  console.log({userInput});
+  fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${userInput}`)
+  .then((response) => response.json())
+    .then((data) => {
 
-	// Store the recipe data to a variable
-	console.log(data.meals);
-  recipe = data.meals[0].idMeal
+    // Store the recipe data to a variable
+    console.log(data.meals);
+    recipeId = data.meals[0].idMeal
 
-	// Fetch another API
-	return fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipe}`);
+    // Fetch another API
+    return fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipeId}`);
 
-}).then((response) => response.json())
-.then((recipeDetails) => {
-	console.log(recipe, recipeDetails.meals[0]);
-});
+  }).then((response) => response.json())
+  .then((recipeDetails) => {
+    console.log(recipeId, recipeDetails.meals[0]);
+})};
