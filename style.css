@@ -35,8 +35,6 @@ input::placeholder{
     opacity: .5;
     font-style: italic;
     text-transform: lowercase;
-/* <<<<<<< HEAD */
-/* ======= */
 }
 
 input[type=text]{
@@ -157,7 +155,6 @@ input[type=text]{
     margin-top: 10%;
     padding-top: 5%;
     padding-bottom: 5%;
-/* >>>>>>> refs/remotes/origin/main */
 }
 
 input[type=text]{
@@ -259,10 +256,13 @@ input[type=text]{
 }
 
 .modal-outer.show{
+    display: grid;
+    justify-content: center;
+    align-items: center;
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.35);
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     visibility: visible;
