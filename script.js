@@ -79,3 +79,33 @@ function getMeals2(event) {
   .then((recipeDetails) => {
     console.log(recipeId, recipeDetails.meals[0]);
 })};
+
+async function getMeals3() {
+  const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=cheese`);
+  const fetchedMeals = await response.json();
+
+  const response2 = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=53013`);
+  const mealDetails = await response2.json();
+  console.log({fetchedMeals, mealDetails});
+  
+  let html = ''
+  fetchedMeals.meals.forEach(meal => {
+    html += `
+      <div class="meal" data-id="${meal.idMeal}">
+        <div class="meal-image">
+          <img src="${meal.strMealThumb}">
+      </div>
+      <div class="meal-info">
+        <span class="meal-category">Work in progress</span>
+        <span class="meal-area">Work in progress</span>
+        <h1 class="meal-title">${meal.strMeal}</h1>
+        </div>
+      </div>
+    `
+    addEventListener('click', openModal);
+  })
+  mealWrapper.innerHTML = html;
+};
+
+
+getMeals3();
