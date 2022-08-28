@@ -53,59 +53,34 @@ function closeModal(e) {
 };
 
 
-
-// Call the API
-function getMeals2(event) {
-  // Declare variables
-  let recipeId;
-  let userInput;
-  let html;
-  // Prevent page from reloading and get userInput
-  event.preventDefault();
-  userInput = inputField.value;
-  console.log({userInput});
-  fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${userInput}`)
-  .then((response) => response.json())
-    .then((data) => {
-
-    // Store the recipe data to a variable
-    console.log(data.meals);
-    recipeId = data.meals[0].idMeal
-
-    // Fetch another API
-    return fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipeId}`);
-
-  }).then((response) => response.json())
-  .then((recipeDetails) => {
-    console.log(recipeId, recipeDetails.meals[0]);
-})};
-
 async function getMeals3() {
   const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=cheese`);
-  const fetchedMeals = await response.json();
-
-  const response2 = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=53013`);
+  const fetchedMeals =  await response.json();
+  
+  const response2 =  await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772`);
   const mealDetails = await response2.json();
-  console.log({fetchedMeals, mealDetails});
   
   let html = ''
+  
   fetchedMeals.meals.forEach(meal => {
+
+    
     html += `
       <div class="meal" data-id="${meal.idMeal}">
         <div class="meal-image">
           <img src="${meal.strMealThumb}">
       </div>
       <div class="meal-info">
-        <span class="meal-category">Work in progress</span>
-        <span class="meal-area">Work in progress</span>
+        <span class="meal-category">${mealDetails.strCategory}</span>
+        <span class="meal-area">${mealDetails.strArea}</span>
         <h1 class="meal-title">${meal.strMeal}</h1>
         </div>
       </div>
     `
     addEventListener('click', openModal);
   })
+  console.log({fetchedMeals, mealDetails})
   mealWrapper.innerHTML = html;
 };
-
 
 getMeals3();
