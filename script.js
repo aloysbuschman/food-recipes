@@ -7,7 +7,7 @@ const modal = document.querySelector('.modal-outer');
 const closeModalBtn = document.querySelector('.close-modal');
 
 //Event listeners
-submitBtn.addEventListener('click', getMeals2);
+// submitBtn.addEventListener('click', getMeals3);
 closeModalBtn.addEventListener('click', closeModal);
 
 // Functions 
@@ -57,29 +57,29 @@ async function getMeals3() {
   const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=cheese`);
   const fetchedMeals =  await response.json();
   
-  const response2 =  await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772`);
-  const mealDetails = await response2.json();
   
   let html = ''
   
-  fetchedMeals.meals.forEach(meal => {
-
-    
+  fetchedMeals.meals.forEach(async (meal) => {
+    const response2 =  await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal.idMeal}`);
+    const mealDetails = await response2.json();
+    console.log({mealDetails});
     html += `
       <div class="meal" data-id="${meal.idMeal}">
         <div class="meal-image">
           <img src="${meal.strMealThumb}">
       </div>
       <div class="meal-info">
-        <span class="meal-category">${mealDetails.strCategory}</span>
-        <span class="meal-area">${mealDetails.strArea}</span>
+        <span class="meal-category">${mealDetails.meals[0].strCategory}</span>
+        <span class="meal-area">${mealDetails.meals[0].strArea}</span>
         <h1 class="meal-title">${meal.strMeal}</h1>
         </div>
       </div>
     `
     addEventListener('click', openModal);
+    console.log(html)
   })
-  console.log({fetchedMeals, mealDetails})
+  console.log({fetchedMeals})
   mealWrapper.innerHTML = html;
 };
 
